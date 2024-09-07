@@ -14,7 +14,7 @@ async def model_setup(app: Litestar) -> AsyncGenerator[None, None]:
     model = getattr(app.state, "model", None)
     if model is None:
         model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, device_map="auto")
-        app.state.assess_model = model
+        app.state.model = model
     try:
         yield
     finally:
@@ -27,7 +27,7 @@ async def tokenizer_setup(app: Litestar) -> AsyncGenerator[None, None]:
     model = getattr(app.state, "tokenizer", None)
     if model is None:
         tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        app.state.assess_model = tokenizer
+        app.state.tokenizer = tokenizer
     try:
         yield
     finally:
