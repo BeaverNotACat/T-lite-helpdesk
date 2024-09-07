@@ -17,4 +17,4 @@ class Assist(Controller):
         self, model: Any, tokenizer: Any, query: Request 
     ) -> Responce:
         """Request processing"""
-        return AssistService(model, tokenizer).assist(query)
+        return Responce(AssistService(model, tokenizer).assist(query))
