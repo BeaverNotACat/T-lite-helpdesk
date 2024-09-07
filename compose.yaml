@@ -1,0 +1,17 @@
+version: 2.26.1
+name: tlite-assistent
+
+services:
+  bot:
+    container_name: bot
+    restart: always
+    build: ./bot
+    ports:
+      - 8080:8080
+
+  api:
+    container_name: api
+    restart: always
+    build: ./api
+    ports:
+      - 8000:8000
