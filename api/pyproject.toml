@@ -11,6 +11,7 @@ litestar = {extras = ["standard"], version = "^2.11.0"}
 transformers = "^4.44.2"
 torch = "^2.4.1"
 uvicorn = "^0.30.6"
+accelerate = "^0.34.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.2"
