@@ -68,6 +68,9 @@ class AssistService:
         """Generate model output in cycle until llvm gets it righ"""   
         while True:
             try:
+                o = self._generate_output(query)
+                print(o)
+                return o
                 return ModelOutputSchema.model_validate(self._generate_output(query)).model_dump_json()
             except ValidationError:
                 pass

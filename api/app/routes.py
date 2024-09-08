@@ -1,6 +1,6 @@
 from typing import Any
 
-from litestar import Controller, get
+from litestar import Controller, post
 from litestar.di import Provide
 
 from app.dependencies import model_dependencie, tokenizer_dependencie
@@ -12,9 +12,9 @@ class Assist(Controller):
     """Class for routing and dependencies providing"""
 
     path = "/assist"
-    @get()
-    async def list_form_populations(
-        self, model: Any, tokenizer: Any, query: Request 
+    @post()
+    async def generate_tlite_answer(
+        self, model: Any, tokenizer: Any, data: Request 
     ) -> Responce:
         """Request processing"""
-        return Responce(AssistService(model, tokenizer).assist(query))
+        return Responce(AssistService(model, tokenizer).assist(data))
